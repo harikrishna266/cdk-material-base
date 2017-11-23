@@ -1,0 +1,21 @@
+
+<mat-list (click)="openMenu = !openMenu;" class="userMenuHolder">
+  <mat-list-item>
+    <img mat-list-avatar src="http://fury.visurel.com/assets/img/avatars/noavatar.png" >
+    <h4 mat-line>Hari Krishna</h4>
+    <mat-list class="personelMenu" [ngClass]="{'open':openMenu}" >
+      <mat-list-item> 
+        <i class="material-icons">perm_identity</i>
+        <h4 mat-line>Profile</h4> 
+      </mat-list-item> 
+      <mat-list-item> 
+        <i class="material-icons">settings</i>
+        <h4 mat-line>Setting</h4> 
+      </mat-list-item> 
+      <mat-list-item> 
+        <i class="material-icons">help</i>
+        <h4 mat-line>Help</h4> 
+      </mat-list-item> 
+    </mat-list>
+  </mat-list-item>
+</mat-list>

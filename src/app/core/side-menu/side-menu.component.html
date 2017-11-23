@@ -1,0 +1,26 @@
+
+<div class="sidemenuHolder">
+    <div fxLayoutAlign="space-around center" [style.margin]="'10px 0px'" >
+      <img width="100" [style.borderRadius]="'50%'" src="http://headshot.com.au/wp/wp-content/uploads/2015/09/MHC_3504.jpg">
+    </div>
+    <mat-list  *ngFor="let menu of menus" class="primary-sidemenu"> 
+        <mat-list-item (click)="menu.open = !menu.open"  mat-ripple matRippleTrigger class="ripple primary" [ngClass]="{opened:menu.open}">
+            <mat-icon class="small" mat-list-icon>{{menu?.icon}}</mat-icon>
+            <p mat-line  class="mat-body-1">
+                {{menu?.name}}
+            </p>
+            <mat-chip-list *ngIf="menu?.chip?.value" >
+                <mat-chip selected="true" [color]='menu?.chip?.color'>{{menu?.chip?.value}}</mat-chip>
+            </mat-chip-list>
+            <a mat-icon-button [ngClass]="{'openButton':menu.open,'closeButton':!menu.open}" >
+                <mat-icon > keyboard_arrow_down</mat-icon>
+            </a>
+        </mat-list-item>
+            <mat-list   [ngClass]="{open:menu.open,close:!menu.open}" class="secondarymenu">
+                
+                <mat-list-item (click)="menuChange(row)" *ngFor="let row of menu?.sub" [routerLink]="[row.link]" class="ripple"  mat-ripple matRippleTrigger [ngClass]="{active:row.open}">    <mat-icon class="small" mat-list-icon>{{row?.icon}}</mat-icon>
+                    <h4 mat-line class="mat-headline">{{row?.name}}</h4>
+                </mat-list-item>
+            </mat-list>
+    </mat-list>
+</div>
